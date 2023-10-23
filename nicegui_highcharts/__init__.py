@@ -1,7 +1,7 @@
 from . import events
-from .highcharts import Highcharts as highcharts
+from .highchart import Highchart as highchart
 
 __all__ = [
     'events',
-    'highcharts',
+    'highchart',
 ]

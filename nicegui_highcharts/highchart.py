@@ -6,10 +6,10 @@ from .events import (ChartPointClickEventArguments, ChartPointDragEventArguments
                      ChartPointDropEventArguments)
 
 
-class Highcharts(ui.element,
-                 component='highcharts.js',
-                 libraries=['lib/highcharts/*.js'],
-                 extra_libraries=['lib/highcharts/modules/*.js']):
+class Highchart(ui.element,
+                component='highchart.js',
+                libraries=['lib/highcharts/*.js'],
+                extra_libraries=['lib/highcharts/modules/*.js']):
 
     def __init__(self, options: Dict, *,
                  type: str = 'chart', extras: List[str] = [],  # pylint: disable=redefined-builtin
@@ -18,7 +18,7 @@ class Highcharts(ui.element,
                  on_point_drag: Optional[Callable] = None,
                  on_point_drop: Optional[Callable] = None,
                  ) -> None:
-        """Chart
+        """Highcharts chart.
 
         An element to create a chart using `Highcharts <https://www.highcharts.com/>`_.
         Updates can be pushed to the chart by changing the `options` property.

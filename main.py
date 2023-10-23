@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 from nicegui import ui
 
-from nicegui_highcharts import highcharts
+from nicegui_highcharts import highchart
 
-highcharts({
+highchart({
     'title': False,
     'chart': {'type': 'bar'},
     'xAxis': {'categories': ['A', 'B']},

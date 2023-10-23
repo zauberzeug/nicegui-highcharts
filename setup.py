@@ -6,6 +6,6 @@ setup(
     version='1.0',
     author='Zauberzeug',
     author_email='info@zauberzeug.com',
-    url='https://github.com/zauberzeug/nicegui_highcharts/',
+    url='https://github.com/zauberzeug/nicegui-highcharts/',
     packages=['nicegui_highcharts'],
 )

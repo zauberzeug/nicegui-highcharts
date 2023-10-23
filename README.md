@@ -1,13 +1,13 @@
 # NiceGUI Highcharts
 
 This package is an extension for [NiceGUI](https://github.com/zauberzeug/nicegui), an easy-to-use, Python-based UI framework.
-It provides a `highcharts` element based on [Highcharts](https://www.highcharts.com/), the popular JavaScript charting library.
+It provides a `highchart` element based on [Highcharts](https://www.highcharts.com/), the popular JavaScript charting library.
 Due to Highcharts' restrictive license, this element is not part of the NiceGUI package anymore, but can be install separately.
 
 ## Installation
 
 ```bash
-python3 -m pip install nicegui_highcharts
+python3 -m pip install nicegui-highcharts
 ```
 
 ## Usage
@@ -16,9 +16,9 @@ Write your nice GUI in a file `main.py`:
 
 ```py
 from nicegui import ui
-from nicegui_highcharts import highcharts
+from nicegui_highcharts import highchart
 
-highcharts({
+highchart({
     'title': False,
     'chart': {'type': 'bar'},
     'xAxis': {'categories': ['A', 'B']},
