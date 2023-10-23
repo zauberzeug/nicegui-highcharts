@@ -41,4 +41,4 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
       - name: verify
         shell: bash
-        run: for i in {1..100}; do sleep 2; python -m pip install 'nicegui==${{ env.VERSION }}' && break; done; sleep 5
+        run: for i in {1..100}; do sleep 2; python -m pip install 'nicegui-highcharts==${{ env.VERSION }}' && break; done; sleep 5
