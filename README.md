@@ -31,6 +31,9 @@ highchart({
 ui.run()
 ```
 
+You can also ommit the highcharts import and direcly use `ui.highcharts` because NiceGUI will recognize the installation of the `nicegui-highcharts` package.
+See https://nicegui.io/documentation/highcharts.
+
 Launch it with:
 
 ```bash
