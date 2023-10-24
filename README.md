@@ -16,9 +16,8 @@ Write your nice GUI in a file `main.py`:
 
 ```py
 from nicegui import ui
-from nicegui_highcharts import highchart
 
-highchart({
+ui.highchart({
     'title': False,
     'chart': {'type': 'bar'},
     'xAxis': {'categories': ['A', 'B']},
@@ -31,8 +30,8 @@ highchart({
 ui.run()
 ```
 
-You can also ommit the highcharts import and direcly use `ui.highcharts` because NiceGUI will recognize the installation of the `nicegui-highcharts` package.
-See https://nicegui.io/documentation/highcharts.
+NiceGUI recognizes the installation of the `nicegui-highcharts` package and adds it to the `ui` namespace.
+For more information, see https://nicegui.io/documentation/highchart.
 
 Launch it with:
 
