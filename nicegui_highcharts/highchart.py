@@ -18,11 +18,15 @@ class Highchart(ui.element,
                  on_point_drag: Optional[Callable] = None,
                  on_point_drop: Optional[Callable] = None,
                  ) -> None:
-        """Highcharts chart.
+        """Highcharts chart
 
         An element to create a chart using `Highcharts <https://www.highcharts.com/>`_.
         Updates can be pushed to the chart by changing the `options` property.
         After data has changed, call the `update` method to refresh the chart.
+
+        Due to Highcharts' restrictive license, this element is not part of the standard NiceGUI package.
+        It is maintained in a `separate repository <https://github.com/zauberzeug/nicegui-highcharts/>`_
+        and can be installed with `pip install nicegui[highcharts]`.
 
         By default, a `Highcharts.chart` is created.
         To use, e.g., `Highcharts.stockChart` instead, set the `type` property to "stockChart".
