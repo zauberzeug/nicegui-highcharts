@@ -1,0 +1,9 @@
+# Components declaration
+# WF 2023-12-18
+version: 0.0.1
+components:
+- name: highcart.py
+  source: /nicegui_highcharts/highchart.py
+  issue: 2
+  demo_url: https://nicegui.io/documentation/highchart
+  demo_image_url: https://github.com/zauberzeug/nicegui-highcharts/assets/1336221/2e850724-dcaa-4428-92e8-92ab39d198c9
