@@ -8,8 +8,10 @@ from .events import (ChartPointClickEventArguments, ChartPointDragEventArguments
 
 class Highchart(ui.element,
                 component='highchart.js',
-                libraries=['lib/highcharts/*.js'],
-                extra_libraries=['lib/highcharts/modules/*.js']):
+                exposed_libraries=[
+                    'lib/highcharts/*.js',
+                    'lib/highcharts/modules/*.js',
+                ]):
 
     def __init__(self, options: Dict, *,
                  type: str = 'chart', extras: List[str] = [],  # pylint: disable=redefined-builtin
@@ -43,7 +45,6 @@ class Highchart(ui.element,
         self._props['type'] = type
         self._props['options'] = options
         self._props['extras'] = extras
-        self.libraries.extend(library for library in self.extra_libraries if library.path.stem in extras)
 
         if on_point_click:
             def handle_point_click(e: events.GenericEventArguments) -> None:

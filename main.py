@@ -11,4 +11,13 @@ ui.highchart({
     ],
 })
 
+ui.highchart({
+    'title': False,
+    'chart': {'type': 'solidgauge'},
+    'yAxis': {'min': 0, 'max': 1},
+    'series': [
+        {'data': [0.42]},
+    ],
+}, extras=['solid-gauge'])
+
 ui.run()
