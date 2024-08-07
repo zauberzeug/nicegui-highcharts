@@ -2,19 +2,23 @@ from typing import Callable, Dict, List, Optional
 
 from nicegui import events, ui
 
-from .events import (ChartPointClickEventArguments, ChartPointDragEventArguments, ChartPointDragStartEventArguments,
-                     ChartPointDropEventArguments)
+from .events import (
+    ChartPointClickEventArguments,
+    ChartPointDragEventArguments,
+    ChartPointDragStartEventArguments,
+    ChartPointDropEventArguments,
+)
 
 
 class Highchart(ui.element,
                 component='highchart.js',
-                exposed_libraries=[
+                dependencies=[
                     'lib/highcharts/*.js',
                     'lib/highcharts/modules/*.js',
                 ]):
 
     def __init__(self, options: Dict, *,
-                 type: str = 'chart', extras: List[str] = [],  # pylint: disable=redefined-builtin
+                 type: str = 'chart', extras: List[str] = [],  # noqa: B006  # pylint: disable=redefined-builtin
                  on_point_click: Optional[Callable] = None,
                  on_point_drag_start: Optional[Callable] = None,
                  on_point_drag: Optional[Callable] = None,

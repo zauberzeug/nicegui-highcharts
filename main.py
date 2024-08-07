@@ -20,4 +20,4 @@ ui.highchart({
     ],
 }, extras=['solid-gauge'])
 
-ui.run()
+ui.run(port=7777)

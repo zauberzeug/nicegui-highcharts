@@ -10,7 +10,7 @@ keywords = ["charts", "highcharts", "gui", "ui", "web"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
-nicegui = "^1.4.0"
+nicegui = "^2.0.0"
 
 [build-system]
 requires = [
@@ -20,4 +20,26 @@ requires = [
 build-backend = "poetry.core.masonry.api"
 
 [tool.mypy]
-ignore_missing_imports = true
+python_version = "3.8"
+
+[tool.ruff]
+indent-width = 4
+line-length = 120
+
+[tool.ruff.lint]
+select = [
+    "I",  # isort
+    "E",  # pycodestyle
+    "W",  # pycodestyle
+    "B",  # bugbear
+    "F",  # pyflakes
+    "UP", # pyupgrade
+    "RUF", # ruff
+    "PL", # pylint
+]
+fixable = [
+    "I",  # isort
+]
+ignore = [
+    "PLR0913",  # too-many-arguments
+]
