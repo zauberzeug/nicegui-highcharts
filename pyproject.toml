@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "nicegui-highcharts"
-version = "0.1.0"
+version = "2.0.1"
 description = "Add Highcharts elements to your NiceGUI app."
 authors = ["Zauberzeug GmbH <info@zauberzeug.com>"]
 license = "MIT"
