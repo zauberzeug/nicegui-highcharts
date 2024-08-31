@@ -10,7 +10,7 @@ keywords = ["charts", "highcharts", "gui", "ui", "web"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
-nicegui = "^2.0.0"
+nicegui = "^2.0.0 || ^2.0.0-dev"
 docutils = "0.20.1"  # fixes the error "Package docutils (0.21.post1) not found."
 
 [build-system]
