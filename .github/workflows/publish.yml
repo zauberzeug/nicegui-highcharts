@@ -4,34 +4,39 @@ on:
   workflow_dispatch:
   push:
     tags:
-      - v**
+      - "v*.*.*"
 
 jobs:
   pypi:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
           python-version: "3.x"
+
       - name: set up Poetry
-        uses: abatilo/actions-poetry@v2.0.0
-        with:
-          poetry-version: "1.3.1"
-      - name: get version
-        id: get_version
+        uses: abatilo/actions-poetry@v2
+
+      - name: Get version
         run: echo "VERSION=$(echo ${GITHUB_REF/refs\/tags\//})" >> $GITHUB_ENV
+
       - name: set version
-        run: poetry version ${{ env.VERSION }}
+        run: |
+          VERSION=${{ env.VERSION }}
+          poetry version ${VERSION#v}
+
       - name: publish
         env:
           POETRY_PYPI_TOKEN_PYPI: ${{ secrets.PYPI_API_TOKEN }}
         run: poetry publish --build
+
       - name: Create GitHub release entry
         uses: softprops/action-gh-release@v1
-        id: create_release
         with:
           draft: false
           prerelease: false
@@ -39,3 +44,10 @@ jobs:
           tag_name: ${{ env.VERSION }}
         env:
           GITHUB_TOKEN: ${{ github.token }}
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pyproject.toml
+          git commit -m "Update pyproject.toml"
+          git push origin HEAD:main

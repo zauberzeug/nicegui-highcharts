@@ -4,5 +4,20 @@
       "path": "."
     }
   ],
-  "settings": {}
+  "settings": {
+    "ruff.enable": true
+  },
+  "extensions": {
+    "recommendations": [
+      "charliermarsh.ruff",
+      "cschleiden.vscode-github-actions",
+      "esbenp.prettier-vscode",
+      "ms-python.autopep8",
+      "ms-python.mypy-type-checker",
+      "ms-python.pylint",
+      "ms-python.python",
+      "ms-python.vscode-pylance",
+      "Vue.volar"
+    ]
+  }
 }
