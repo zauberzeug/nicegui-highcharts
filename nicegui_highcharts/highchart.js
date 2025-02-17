@@ -50,6 +50,7 @@ export default {
           this.chart.addSeries({}, false);
           this.seriesCount++;
         }
+        convertDynamicProperties(this.options, true);
         this.chart.update(this.options);
       }
     },
