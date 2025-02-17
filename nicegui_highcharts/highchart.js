@@ -1,3 +1,5 @@
+import { convertDynamicProperties } from "../../static/utils/dynamic_properties.js";
+
 export default {
   template: "<div></div>",
   async mounted() {
@@ -6,6 +8,7 @@ export default {
       await import("highcharts-more");
     }
     await Promise.all(this.extras.map((extra) => import(extra)));
+    convertDynamicProperties(this.options, true);
     this.seriesCount = this.options.series ? this.options.series.length : 0;
     this.options.plotOptions = this.options.plotOptions ?? {};
     this.options.plotOptions.series = this.options.plotOptions.series ?? {};
@@ -47,6 +50,7 @@ export default {
           this.chart.addSeries({}, false);
           this.seriesCount++;
         }
+        convertDynamicProperties(this.options, true);
         this.chart.update(this.options);
       }
     },
