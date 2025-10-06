@@ -13,7 +13,7 @@ repos:
     rev: v6.0.0
     hooks:
       - id: trailing-whitespace
-        exclude: ^nicegui_highcharts/lib/
+        exclude: ^nicegui_highcharts/dist/
       - id: end-of-file-fixer
-        exclude: ^nicegui_highcharts/lib/
+        exclude: ^nicegui_highcharts/dist/
       - id: double-quote-string-fixer

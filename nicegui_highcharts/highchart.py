@@ -10,12 +10,7 @@ from .events import (
 )
 
 
-class Highchart(ui.element,
-                component='highchart.js',
-                dependencies=[
-                    'lib/highcharts/*.js',
-                    'lib/highcharts/modules/*.js',
-                ]):
+class Highchart(ui.element, component='highchart.js', esm={'nicegui-highcharts': 'dist'}):
 
     def __init__(self, options: dict, *,
                  type: str = 'chart', extras: list[str] = [],  # noqa: B006  # pylint: disable=redefined-builtin

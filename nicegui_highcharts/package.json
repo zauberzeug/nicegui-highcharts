@@ -1,0 +1,21 @@
+{
+  "name": "nicegui-highcharts-bundle",
+  "version": "1.0.0",
+  "description": "Highcharts bundling for NiceGUI",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "rollup -c rollup.config.mjs --validate",
+    "clean": "rimraf ./dist/*"
+  },
+  "dependencies": {
+    "highcharts": "^12.4.0"
+  },
+  "devDependencies": {
+    "rollup": "^4.52.4",
+    "@rollup/plugin-node-resolve": "^16.0.2",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-commonjs": "^28.0.6",
+    "rimraf": "^6.0.1"
+  }
+}
