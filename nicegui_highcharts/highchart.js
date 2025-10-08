@@ -1,13 +1,13 @@
 import { convertDynamicProperties } from "../../static/utils/dynamic_properties.js";
+import { Highcharts, loadMore, loadModule } from "nicegui-highcharts";
 
 export default {
   template: "<div></div>",
   async mounted() {
-    await import("highcharts");
     if (this.extras) {
-      await import("highcharts-more");
+      await loadMore();
     }
-    await Promise.all(this.extras.map((extra) => import(extra)));
+    await Promise.all(this.extras.map((extra) => loadModule(extra)));
     convertDynamicProperties(this.options, true);
     this.seriesCount = this.options.series ? this.options.series.length : 0;
     this.options.plotOptions = this.options.plotOptions ?? {};

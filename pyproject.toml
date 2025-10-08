@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "nicegui-highcharts"
-version = "2.2.0"
+version = "3.0.0"
 description = "Add Highcharts elements to your NiceGUI app."
 authors = ["Zauberzeug GmbH <info@zauberzeug.com>"]
 license = "MIT"
@@ -9,9 +9,8 @@ repository = "https://github.com/zauberzeug/nicegui-highcharts"
 keywords = ["charts", "highcharts", "gui", "ui", "web"]
 
 [tool.poetry.dependencies]
-python = "^3.8"
-nicegui = { version = "^2.0.0 || ^3.0.0", allow-prereleases = true }
-docutils = "0.20.1"  # fixes the error "Package docutils (0.21.post1) not found."
+python = "^3.9"
+nicegui = "^3.0.0"
 
 [build-system]
 requires = [
@@ -20,12 +19,24 @@ requires = [
 ]
 build-backend = "poetry.core.masonry.api"
 
+[tool.autopep8]
+max-line-length = 120
+
 [tool.mypy]
-python_version = "3.8"
+python_version = "3.9"
+install_types = true
+check_untyped_defs = true
 
 [tool.ruff]
+target-version = "py39"
 indent-width = 4
 line-length = 120
+
+[tool.ruff.lint.flake8-quotes]
+inline-quotes = "single"
+multiline-quotes = "single"
+docstring-quotes = "double"
+avoid-escape = true
 
 [tool.ruff.lint]
 select = [
@@ -40,7 +51,24 @@ select = [
 ]
 fixable = [
     "I",  # isort
+    "UP035", # deprecated import
+    "RUF022", # `__all__` is not sorted
+    "Q000",  # bad quotes inline string
+    "Q001",  # bad quotes multiline string
+    "Q002",  # bad quotes docstring
+    "Q003",  # avoidable escaped quote
+    "Q004",  # unnecessary escaped quote
 ]
 ignore = [
     "PLR0913",  # too-many-arguments
+]
+
+[tool.pylint]
+disable = [
+    "C0103", # Invalid name (e.g., variable/function/class naming conventions)
+    "C0114", # Missing module docstring
+    "C0115", # Missing class docstring
+    "C0301", # Line too long (exceeds character limit)
+    "R0913", # Too many arguments
+    "W0102", # Dangerous default value as argument
 ]
