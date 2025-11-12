@@ -22,15 +22,14 @@ class Highchart(ui.element, component='highchart.js', esm={'nicegui-highcharts':
         """Highcharts chart
 
         An element to create a chart using `Highcharts <https://www.highcharts.com/>`_.
-        Updates can be pushed to the chart by changing the `options` property.
-        After data has changed, call the `update` method to refresh the chart.
+        Updates can be pushed to the chart by changing the ``options`` property.
 
         Due to Highcharts' restrictive license, this element is not part of the standard NiceGUI package.
         It is maintained in a `separate repository <https://github.com/zauberzeug/nicegui-highcharts/>`_
-        and can be installed with `pip install nicegui[highcharts]`.
+        and can be installed with ``pip install nicegui[highcharts]``.
 
-        By default, a `Highcharts.chart` is created.
-        To use, e.g., `Highcharts.stockChart` instead, set the `type` property to "stockChart".
+        By default, a ``Highcharts.chart`` is created.
+        To use, e.g., ``Highcharts.stockChart`` instead, set the ``type`` property to "stockChart".
 
         :param options: dictionary of Highcharts options
         :param type: chart type (e.g. "chart", "stockChart", "mapChart", ...; default: "chart")
