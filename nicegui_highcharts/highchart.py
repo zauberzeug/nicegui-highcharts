@@ -43,6 +43,7 @@ class Highchart(ui.element, component='highchart.js', esm={'nicegui-highcharts':
         self._props['type'] = type
         self._props['options'] = options
         self._props['extras'] = extras
+        self._update_method = 'update_chart'
 
         if on_point_click:
             def handle_point_click(e: events.GenericEventArguments) -> None:
@@ -97,6 +98,6 @@ class Highchart(ui.element, component='highchart.js', esm={'nicegui-highcharts':
         """The options dictionary."""
         return self._props['options']
 
-    def update(self) -> None:
-        super().update()
-        self.run_method('update_chart')
+    @options.setter
+    def options(self, value: dict) -> None:
+        self._props['options'] = value
