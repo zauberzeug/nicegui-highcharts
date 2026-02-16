@@ -7,7 +7,9 @@ export default {
     if (this.extras) {
       await loadMore();
     }
-    await Promise.all(this.extras.map((extra) => loadModule(extra)));
+    for (const extra of this.extras) {
+      await loadModule(extra);
+    }
     convertDynamicProperties(this.options, true);
     this.seriesCount = this.options.series ? this.options.series.length : 0;
     this.options.plotOptions = this.options.plotOptions ?? {};
