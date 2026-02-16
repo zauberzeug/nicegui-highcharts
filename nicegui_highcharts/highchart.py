@@ -1,4 +1,4 @@
-from typing import Callable, Optional
+from collections.abc import Callable
 
 from nicegui import events, ui
 
@@ -14,10 +14,10 @@ class Highchart(ui.element, component='highchart.js', esm={'nicegui-highcharts':
 
     def __init__(self, options: dict, *,
                  type: str = 'chart', extras: list[str] = [],  # noqa: B006  # pylint: disable=redefined-builtin
-                 on_point_click: Optional[Callable] = None,
-                 on_point_drag_start: Optional[Callable] = None,
-                 on_point_drag: Optional[Callable] = None,
-                 on_point_drop: Optional[Callable] = None,
+                 on_point_click: Callable | None = None,
+                 on_point_drag_start: Callable | None = None,
+                 on_point_drag: Callable | None = None,
+                 on_point_drop: Callable | None = None,
                  ) -> None:
         """Highcharts chart
 
