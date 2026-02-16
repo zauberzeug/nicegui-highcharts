@@ -1,26 +1,20 @@
-[tool.poetry]
+[project]
 name = "nicegui-highcharts"
 version = "3.1.0"
 description = "Add Highcharts elements to your NiceGUI app."
-authors = ["Zauberzeug GmbH <info@zauberzeug.com>"]
-license = "MIT"
+authors = [{name = "Zauberzeug GmbH", email = "info@zauberzeug.com"}]
+license = {text = "MIT"}
 readme = "README.md"
-repository = "https://github.com/zauberzeug/nicegui-highcharts"
 keywords = ["charts", "highcharts", "gui", "ui", "web"]
+requires-python = ">=3.10"
+dependencies = ["nicegui>=3.0.0"]
 
-[tool.poetry.dependencies]
-python = "^3.10"
-nicegui = "^3.0.0"
+[project.urls]
+Repository = "https://github.com/zauberzeug/nicegui-highcharts"
 
 [build-system]
-requires = [
-    "setuptools>=30.3.0,<50",
-    "poetry-core>=1.0.0"
-]
-build-backend = "poetry.core.masonry.api"
-
-[tool.autopep8]
-max-line-length = 120
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [tool.mypy]
 python_version = "3.10"

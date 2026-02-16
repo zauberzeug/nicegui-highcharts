@@ -14,13 +14,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: set up Python
-        uses: actions/setup-python@v6
+      - uses: astral-sh/setup-uv@v7
         with:
-          python-version: "3.x"
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"
 
-      - name: set up Poetry
-        uses: abatilo/actions-poetry@v4
+      - name: Install Python
+        run: uv python install
 
       - name: Get version
         run: echo "VERSION=$(echo ${GITHUB_REF/refs\/tags\//})" >> $GITHUB_ENV
@@ -28,12 +28,12 @@ jobs:
       - name: set version
         run: |
           VERSION=${{ env.VERSION }}
-          poetry version ${VERSION#v}
+          sed -i "s/^version = .*/version = \"${VERSION#v}\"/" pyproject.toml
 
-      - name: publish
-        env:
-          POETRY_PYPI_TOKEN_PYPI: ${{ secrets.PYPI_API_TOKEN }}
-        run: poetry publish --build
+      - name: Build and publish
+        run: |
+          uv build
+          uv publish --token ${{ secrets.PYPI_API_TOKEN }}
 
       - name: Create GitHub release entry
         uses: softprops/action-gh-release@v2
