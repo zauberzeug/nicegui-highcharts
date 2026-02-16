@@ -9,7 +9,7 @@ repository = "https://github.com/zauberzeug/nicegui-highcharts"
 keywords = ["charts", "highcharts", "gui", "ui", "web"]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.10"
 nicegui = "^3.0.0"
 
 [build-system]
@@ -23,12 +23,12 @@ build-backend = "poetry.core.masonry.api"
 max-line-length = 120
 
 [tool.mypy]
-python_version = "3.9"
+python_version = "3.10"
 install_types = true
 check_untyped_defs = true
 
 [tool.ruff]
-target-version = "py39"
+target-version = "py310"
 indent-width = 4
 line-length = 120
 
