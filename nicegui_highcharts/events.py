@@ -1,15 +1,14 @@
 from dataclasses import dataclass
 
-from nicegui.dataclasses import KWONLY_SLOTS
 from nicegui.events import UiEventArguments
 
 
-@dataclass(**KWONLY_SLOTS)
+@dataclass(kw_only=True, slots=True)
 class ChartEventArguments(UiEventArguments):
     event_type: str
 
 
-@dataclass(**KWONLY_SLOTS)
+@dataclass(kw_only=True, slots=True)
 class ChartPointClickEventArguments(ChartEventArguments):
     series_index: int
     point_index: int
@@ -17,12 +16,12 @@ class ChartPointClickEventArguments(ChartEventArguments):
     point_y: float
 
 
-@dataclass(**KWONLY_SLOTS)
+@dataclass(kw_only=True, slots=True)
 class ChartPointDragStartEventArguments(ChartEventArguments):
     pass
 
 
-@dataclass(**KWONLY_SLOTS)
+@dataclass(kw_only=True, slots=True)
 class ChartPointDragEventArguments(ChartEventArguments):
     series_index: int
     point_index: int
@@ -30,7 +29,7 @@ class ChartPointDragEventArguments(ChartEventArguments):
     point_y: float
 
 
-@dataclass(**KWONLY_SLOTS)
+@dataclass(kw_only=True, slots=True)
 class ChartPointDropEventArguments(ChartEventArguments):
     series_index: int
     point_index: int
