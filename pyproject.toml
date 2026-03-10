@@ -1,6 +1,6 @@
 [project]
 name = "nicegui-highcharts"
-version = "3.2.0"
+version = "3.2.1"
 description = "Add Highcharts elements to your NiceGUI app."
 authors = [{name = "Zauberzeug GmbH", email = "info@zauberzeug.com"}]
 license = {text = "MIT"}
