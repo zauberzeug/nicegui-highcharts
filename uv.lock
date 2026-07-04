@@ -785,7 +785,7 @@ wheels = [
 
 [[package]]
 name = "nicegui-highcharts"
-version = "3.1.0"
+version = "3.2.1"
 source = { editable = "." }
 dependencies = [
     { name = "nicegui" },

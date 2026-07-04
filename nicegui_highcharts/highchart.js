@@ -11,7 +11,6 @@ export default {
       await loadModule(extra);
     }
     convertDynamicProperties(this.options, true);
-    this.seriesCount = this.options.series ? this.options.series.length : 0;
     this.options.plotOptions = this.options.plotOptions ?? {};
     this.options.plotOptions.series = this.options.plotOptions.series ?? {};
     this.options.plotOptions.series.point = this.options.plotOptions.series.point ?? {};
@@ -44,16 +43,8 @@ export default {
   methods: {
     update_chart() {
       if (this.chart) {
-        while (this.seriesCount > this.options.series.length) {
-          this.chart.series[0].remove();
-          this.seriesCount--;
-        }
-        while (this.seriesCount < this.options.series.length) {
-          this.chart.addSeries({}, false);
-          this.seriesCount++;
-        }
         convertDynamicProperties(this.options, true);
-        this.chart.update(this.options);
+        this.chart.update(this.options, true, true);
       }
     },
     destroyChart() {
