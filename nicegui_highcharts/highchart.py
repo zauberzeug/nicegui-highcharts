@@ -33,7 +33,10 @@ class Highchart(ui.element, component='highchart.js', esm={'nicegui-highcharts':
 
         :param options: dictionary of Highcharts options
         :param type: chart type (e.g. "chart", "stockChart", "mapChart", ...; default: "chart")
-        :param extras: list of extra dependencies to include (e.g. "annotations", "arc-diagram", "solid-gauge", ...)
+        :param extras: list of extra dependencies to include (e.g. "annotations", "arc-diagram", "solid-gauge", ...);
+            extras are loaded in the given order, so list prerequisites first:
+            technical indicators require the "indicators" module (e.g. ``["stock", "indicators", "wma"]``),
+            and some build on other indicators (e.g. "stochastic" before "slow-stochastic")
         :param on_point_click: callback function that is called when a point is clicked
         :param on_point_drag_start: callback function that is called when a point drag starts
         :param on_point_drag: callback function that is called when a point is dragged
