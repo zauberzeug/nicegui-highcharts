@@ -23,6 +23,8 @@ class Highchart(ui.element, component='highchart.js', esm={'nicegui-highcharts':
 
         An element to create a chart using `Highcharts <https://www.highcharts.com/>`_.
         Updates can be pushed to the chart by changing the ``options`` property.
+        Note that ``point_index`` in the point events is Highcharts' internal point index,
+        which can differ from the position in ``options`` after an update.
 
         Due to Highcharts' restrictive license, this element is not part of the standard NiceGUI package.
         It is maintained in a `separate repository <https://github.com/zauberzeug/nicegui-highcharts/>`_
