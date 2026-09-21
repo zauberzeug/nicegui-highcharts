@@ -139,6 +139,7 @@ const extraDependencies = {
   "aroon-oscillator": ["aroon"],
   flowmap: ["map"],
   geoheatmap: ["map"],
+  "keltner-channels": ["atr"],
   lollipop: ["dumbbell"],
   natr: ["atr"],
   "slow-stochastic": ["stochastic"],
