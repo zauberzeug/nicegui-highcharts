@@ -20,4 +20,12 @@ ui.highchart({
     ],
 }, extras=['solid-gauge'])
 
+ui.highchart({
+    'title': False,
+    'rangeSelector': {'selected': 0},
+    'series': [
+        {'name': 'Gamma', 'data': [[1704067200000, 0.1], [1706745600000, 0.3], [1709251200000, 0.2]]},
+    ],
+}, type='stockChart', extras=['stock'])
+
 ui.run(port=7777)

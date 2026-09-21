@@ -11,6 +11,17 @@ export default {
       await loadModule(extra);
     }
     convertDynamicProperties(this.options, true);
+    // Tailwind's CSS reset makes form controls transparent, so the native inputs Highcharts overlays on the
+    // range selector's date labels stop covering them. Highcharts merges inputStyle last into the input's
+    // inline style, so this beats the reset; default to the chart's background to stay readable when dark.
+    const background = this.options.chart?.backgroundColor ?? Highcharts.getOptions().chart?.backgroundColor;
+    this.options.rangeSelector = {
+      ...this.options.rangeSelector,
+      inputStyle: {
+        backgroundColor: Highcharts.color(background).rgba[3] === 1 ? background : "#fff",
+        ...this.options.rangeSelector?.inputStyle,
+      },
+    };
     this.options.plotOptions = this.options.plotOptions ?? {};
     this.options.plotOptions.series = this.options.plotOptions.series ?? {};
     this.options.plotOptions.series.point = this.options.plotOptions.series.point ?? {};
